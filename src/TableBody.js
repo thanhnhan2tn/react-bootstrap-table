@@ -165,13 +165,13 @@ class TableBody extends Component {
         onExpandRow={ this.handleClickCell }
         unselectableRow={ disable }>
         { this.props.expandColumnOptions.expandColumnVisible &&
-            this.props.expandColumnOptions.expandColumnBeforeSelectColumn &&
-            expandedRowColumn }
-        { selectRowColumn }
-        { this.props.expandColumnOptions.expandColumnVisible &&
             !this.props.expandColumnOptions.expandColumnBeforeSelectColumn &&
             expandedRowColumn }
         { tableColumns }
+        { this.props.expandColumnOptions.expandColumnVisible &&
+            this.props.expandColumnOptions.expandColumnBeforeSelectColumn &&
+            expandedRowColumn }
+        { selectRowColumn }
       </TableRow> ];
 
       if (this.props.expandableRow && this.props.expandableRow(data)) {

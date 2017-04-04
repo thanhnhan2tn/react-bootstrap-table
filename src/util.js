@@ -84,13 +84,13 @@ export default {
     return (
       <colgroup>
         { expandColumnOptions.expandColumnVisible &&
-            expandColumnOptions.expandColumnBeforeSelectColumn &&
-            expandRowHeader }
-        { selectRowHeader }
-        { expandColumnOptions.expandColumnVisible &&
             !expandColumnOptions.expandColumnBeforeSelectColumn &&
             expandRowHeader }
         { theader }
+        { expandColumnOptions.expandColumnVisible &&
+            expandColumnOptions.expandColumnBeforeSelectColumn &&
+            expandRowHeader }
+        { selectRowHeader }
       </colgroup>
     );
   }
