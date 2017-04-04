@@ -52,19 +52,7 @@ class TableHeader extends Component {
     let rowKey = 0;
 
     rows[0] = [];
-    rows[0].push( [
-      this.props.expandColumnVisible &&
-        this.props.expandColumnBeforeSelectColumn &&
-          <th className='react-bs-table-expand-cell'> </th>
-    ], [
-      this.renderSelectRowHeader(rowCount + 1, rowKey++)
-    ], [
-      this.props.expandColumnVisible &&
-        !this.props.expandColumnBeforeSelectColumn &&
-          <th className='react-bs-table-expand-cell'> </th>
-    ]);
     const { sortIndicator, sortList, onSort, reset } = this.props;
-
     React.Children.forEach(this.props.children, (elm) => {
       const { dataField, dataSort } = elm.props;
       const sort = getSortOrder(sortList, dataField, dataSort);
@@ -83,6 +71,17 @@ class TableHeader extends Component {
           ));
       }
     });
+    rows[0].push( [
+      this.props.expandColumnVisible &&
+        this.props.expandColumnBeforeSelectColumn &&
+          <th className='react-bs-table-expand-cell'> </th>
+    ], [
+      this.renderSelectRowHeader(rowCount + 1, rowKey++)
+    ], [
+      this.props.expandColumnVisible &&
+        !this.props.expandColumnBeforeSelectColumn &&
+          <th className='react-bs-table-expand-cell'> </th>
+    ]);
 
     const trs = rows.map((row, indexRow)=>{
       return (
